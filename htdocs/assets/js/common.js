@@ -168,8 +168,23 @@
 			$('#end').val("");
 			$('#text').val("");
 
-			$vtt.val($vtt.val() + text);
+			$vtt.val($vtt.val() + '\r\n' + text);
 			// this.loadVtt(text);
+		},
+		downloadVtt: function(){
+			var $vtt = $('#vtt');
+			var a = document.createElement("a");
+			//念の為local storageに一旦保存する
+			localStorage.setItem("webvtt", $vtt.val());
+			//念の為
+
+			blob = new Blob([$vtt.val()], {type: "octet/stream"}),
+			url = window.URL.createObjectURL(blob);
+
+			a.href = url;
+			a.target = '_blank';
+			a.download = 'webvtt.vtt';
+			a.click();
 		}
 
 	}
