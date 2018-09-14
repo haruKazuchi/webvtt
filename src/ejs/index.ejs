@@ -2,7 +2,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>WEBVTT EDITOR</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 		<link rel="stylesheet" href="/assets/css/style.css">
@@ -13,10 +13,9 @@
 		<div id="main">
 			<div class="video-container">
 				<input type="file" id="file-video" accept="video">
-				<video id="video-preview" controls autoplay poster="/assets/img/poster.png">
-					<track default>
+				<video id="video-preview" muted controls autoplay poster="/assets/img/poster.png">
 				</video>
-				<!-- <button id="download" onclick="Main.download()">Download</button> -->
+				<button id="loadVideoData" onclick="Main.loadVideoData()">Load Video Data</button>
 			</div>
 			<div class="subtitle-container">
 				<h1>Subtitle</h1>
@@ -25,15 +24,35 @@
 			</div>
 		</div>
 
+		<div id="box">
+			<div class="bar-wrapper">
+				<div class="bar">
+
+				</div>
+			</div>
+			<div class="modal-wrapper">
+				<div class="modal">
+					<div class="input-wrapper">
+						<input id="start" type="text" placeholder="00:00:00.000">
+						<label class="label">Start</label>
+						<label class="error"></label>
+					</div>
+					<div class="input-wrapper">
+						<input id="end" type="text" placeholder="00:00:00.000">
+						<label class="label">End</label>
+						<label class="error"></label>
+					</div>
+					<div class="input-wrapper">
+						<textarea id="text" placeholder="text"></textarea>
+						<label class="label">Text</label>
+						<label class="error"></label>
+					</div>
+					<button id="addText" onclick="Main.addText()">Add</button>
+				</div>
+			</div>
+		</div>
+
 		<script type="text/vtt" id="subtitle" data-label="English" data-lang="en">
-WEBVTT
-
-00:01.000 --> 00:04.000
-- Never drink liquid nitrogen.
-
-00:05.000 --> 00:09.000
-- It will perforate your stomach.
-- You could die.
 		</script>
 	</body>
 </html>
