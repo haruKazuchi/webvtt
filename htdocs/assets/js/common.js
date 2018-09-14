@@ -168,17 +168,18 @@
 			$('#end').val("");
 			$('#text').val("");
 
-			$vtt.val($vtt.val() + '\r\n' + text);
+			$vtt.val($vtt.val() + text);
 			// this.loadVtt(text);
 		},
 		downloadVtt: function(){
 			var $vtt = $('#vtt');
 			var a = document.createElement("a");
+			var saveData = 'WEBVTT' + '\r\n' + '\r\n' + $vtt.val()
 			//念の為local storageに一旦保存する
-			localStorage.setItem("webvtt", $vtt.val());
+			localStorage.setItem("webvtt", saveData);
 			//念の為
 
-			blob = new Blob([$vtt.val()], {type: "octet/stream"}),
+			blob = new Blob([saveData], {type: "octet/stream"}),
 			url = window.URL.createObjectURL(blob);
 
 			a.href = url;
