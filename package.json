@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    start: "gulp server",
-	build: "gulp build",
-	lint: "eslint .",
-	test: "node test.js --env=jsdom"
+    "start": "gulp server",
+	"build": "gulp build",
+	"lint": "eslint .",
+	"test": "node test.js --env=jsdom"
   },
   "author": "",
   "license": "ISC",
